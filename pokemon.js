@@ -40,7 +40,10 @@ getPokemonImage() {
     success: function(result) {
       console.log('pokemon Images:', result.sprites["front_default"]);
       self.resultImage = result;
-      self.pokemonImage;
+      self.pokemonImage = result.sprites["front_default"];
+      //var appendImage = $('.pokemon').append.css(self.pokemonImage);
+      var pokeImage = $('<img>').attr('src', self.pokemonImage);
+      var appendImage = $('.pokemon').append(pokeImage);
     },
     error: function(result) {
       console.log('pokemonApi result:', result);
