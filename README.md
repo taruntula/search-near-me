@@ -9,7 +9,7 @@ Hackathon project involving the combination of different data sources into an ap
   - must use class
   - must have methods to access the data
   - must pass data to subsequent functions with callbacks upon getting their data
-  
+
 - Must be issue-managed via meistertask or trello
   - name your project 8.19 Team [your team number] Hackathon
 
