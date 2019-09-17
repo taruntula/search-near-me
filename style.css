@@ -47,7 +47,7 @@ body,html {
     display: inline-block;
     position: relative;
     border-radius: 20px 20px 20px 20px;
-    top: 19px;
+    top: 34px;
     height: 45%;
     width: 71%;
     color: white;
@@ -63,17 +63,34 @@ body,html {
 .time-zone {
     display: inline-block;
     border-radius: 20px 20px 20px 20px;
-    top: 26px;
-    left: 58px;
+    top: 31px;
+    left: 159px;
     color: white;
     position: relative;
     text-align: center;
     text-shadow: 1px 1px black, 2px 2px black, 3px 3px black;
-    height: 14%;
-    width: 24%;
-    background: powderblue;
-    font-size: 27px;
+    height: 23%;
+    width: 38%;
+    /* background: powderblue; */
+    font-size: 38px;
 }
+
+.gps-icon {
+  /* display: inline-block; */
+  float: left;
+  /* background: purple; */
+  left: 13px;
+  position: relative;
+  left: 18px;
+  color: lightblue;
+}
+
+
+
+
+
+
+
 
 .pokemon {
     display: inline-block;
