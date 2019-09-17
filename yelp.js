@@ -2,9 +2,11 @@ class Yelp {
   constructor (zipCode, radiusInMiles) {
     this.zipCode = zipCode;
     this.radius = this.convertMilesToMeters(radiusInMiles);
+    this.response = null;
   }
 
   apiRequest() {
+    var self = this;
     var ajaxConfig = {
       dataType: 'json',
       url: `./yelp.php`,
@@ -19,11 +21,12 @@ class Yelp {
       },
       success: function(response) {
         console.log("Yelp:",response);
+        self.response = response;
         for (let i = 0; i < response.businesses.length; i++) {
-          var newDiv = $('<div>').addClass('foodBusiness');
+          var yelpDiv = $('<div>').addClass('yelpBusiness' + i);
           var businessName = response.businesses[i].name;
-          newDiv.text(businessName);
-          $('body').append(newDiv);
+          $('.yelp').append(yelpDiv);
+          yelpDiv.text(businessName);
         }
       },
       error: function (response) {
