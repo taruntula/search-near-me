@@ -2,6 +2,7 @@ class DarkskyApi {
   constructor(longitude,latitude){
     this.longitude = longitude;
     this.latitude = latitude;
+    this.currentWeather = "";
   }
   getWeatherData() {
     var ajaxConfigObject = {
@@ -11,6 +12,7 @@ class DarkskyApi {
       success: function (result) {
         console.log("SUCCESS", result);
         var currentIcon = result.currently.icon;
+        this.currentWeather = currentIcon;
         var iconDiv = $("#weather-icon");
         switch (currentIcon) {
           case "clear-day":
