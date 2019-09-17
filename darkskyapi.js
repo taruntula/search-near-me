@@ -3,17 +3,20 @@ class DarkskyApi {
     this.longitude = longitude;
     this.latitude = latitude;
     this.currentWeather = "";
+    this.weatherIcon = "";
   }
   getWeatherData() {
+    var self = this;
     var ajaxConfigObject = {
       dataType: 'json',
-      url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/57024ed6d2133cb3fa08bc57de5d4926/'+this.longitude+','+this.latitude,
+      url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/57024ed6d2133cb3fa08bc57de5d4926/'+self.longitude+','+self.latitude,
       method: "GET",
       success: function (result) {
         console.log("SUCCESS", result);
         var currentIcon = result.currently.icon;
-        this.currentWeather = currentIcon;
+        self.currentIcon = currentIcon;
         var currentWeather = result.currently.temperature;
+        self.currentWeather = currentWeather;
         var iconDiv = $("#weather-icon");
         switch (currentIcon) {
           case "clear-day":
@@ -66,6 +69,10 @@ class DarkskyApi {
       }
     }
     $.ajax(ajaxConfigObject);
+  }
+
+  getWeatherIcon() {
+    return this.weatherIcon;
   }
 
 }
