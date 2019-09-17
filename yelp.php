@@ -1,4 +1,5 @@
 <?php
+
     $proxyURL = "https://api.yelp.com/v3/businesses/search";
     $acceptableHeaders = ['TRN-Api-Key', 'Authorization'];
 
