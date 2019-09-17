@@ -1,8 +1,9 @@
 class Yelp {
-  constructor (zipCode, radiusInMiles) {
+  constructor (zipCode, radiusInMiles, searchTerm) {
     this.zipCode = zipCode;
     this.radius = this.convertMilesToMeters(radiusInMiles);
     this.response = null;
+    this.term = searchTerm;
   }
 
   apiRequest() {
@@ -15,9 +16,9 @@ class Yelp {
         Authorization: "Bearer lW5xlHMb8jKbQ5KV82iD5Y9uVhWK4h9Apiwn2B38wyo8ohRFHVmlAWm8QDPwkoqcDA7I6QY_VwiyRDec-GY3BSpk286o7Dnf7caOoPIuQMHfgaqowqB3TIBp9DCAXXYx",
       },
       data: {
-        location: this.zipCode,
-        radius: this.radius,
-        term: 'food',
+        location: self.zipCode,
+        radius: self.radius,
+        term: this.term,
       },
       success: function(response) {
         console.log("Yelp:",response);
@@ -41,5 +42,5 @@ class Yelp {
   }
 }
 
-var ajax = new Yelp(92782, 10);
-ajax.apiRequest();
+var test = new Yelp(92782, 10, 'sushi');
+test.apiRequest();
