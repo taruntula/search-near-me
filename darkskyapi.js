@@ -17,7 +17,7 @@ class DarkskyApi {
         self.currentIcon = currentIcon;
         var currentWeather = result.currently.temperature;
         self.currentWeather = currentWeather;
-        var iconDiv = $("#weather-icon");
+        var iconDiv = $(".weather-icon");
         switch (currentIcon) {
           case "clear-day":
             var weatherDiv = $("<i>").addClass("fas fa-sun");
@@ -55,10 +55,8 @@ class DarkskyApi {
         // debugger;
         var shortForecast = result.daily.summary;
         var forecastText = $("<div>").text(shortForecast);
-        var dailyForecast = $("#icon-description");
+        var dailyForecast = $(".icon-description");
         dailyForecast.append(forecastText);
-
-
         iconDiv.append(weatherDiv);
       },
       error: function (jqXHR, status, errorThrown) {
