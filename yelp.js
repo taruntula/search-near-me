@@ -3,7 +3,7 @@ class Yelp {
     this.zipCode = zipCode;
     this.radius = this.convertMilesToMeters(radiusInMiles);
     this.response = null;
-    this.term = searchTerm;
+    this.term = searchTerm; // will be $('selector').val() to grab value from input field.
   }
 
   apiRequest() {
@@ -23,11 +23,30 @@ class Yelp {
       success: function(response) {
         console.log("Yelp:",response);
         self.response = response;
+        var newTable = $('<tr>').addClass('tableHead');
+        $('.yelp').append(newTable);
         for (let i = 0; i < response.businesses.length; i++) {
           var yelpDiv = $('<div>').addClass('yelpBusiness' + i);
           var businessName = response.businesses[i].name;
           $('.yelp').append(yelpDiv);
           yelpDiv.text(businessName);
+          if (i < 3) {
+            var tableHeader = $('<th>');
+            switch (i) {
+              case 0:
+                newTable.append(tableHeader);
+                tableHeader.addClass('tableHeader price').text('PRICE');
+                break;
+              case 1:
+                newTable.append(tableHeader);
+                tableHeader.addClass('tableHeader place').text('PLACE');
+                break;
+              case 2:
+                newTable.append(tableHeader);
+                tableHeader.addClass('tableHeader distance').text('DISTANCE');
+                break;
+            }
+          }
         }
       },
       error: function (response) {
