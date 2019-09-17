@@ -1,7 +1,7 @@
 class Yelp {
-  constructor (zipCode, radius) {
+  constructor (zipCode, radiusInMeters) {
     this.zipCode = zipCode;
-    this.radius = radius;
+    this.radius = this.convertMetersToMiles(radiusInMeters);
   }
 
   apiRequest() {
@@ -31,6 +31,10 @@ class Yelp {
       }
     };
     $.ajax(ajaxConfig);
+  }
+
+  convertMetersToMiles(meters) {
+    return meters * 1609.344;
   }
 }
 
