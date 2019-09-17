@@ -13,6 +13,7 @@ class DarkskyApi {
         console.log("SUCCESS", result);
         var currentIcon = result.currently.icon;
         this.currentWeather = currentIcon;
+        var currentWeather = result.currently.temperature;
         var iconDiv = $("#weather-icon");
         switch (currentIcon) {
           case "clear-day":
@@ -67,24 +68,7 @@ class DarkskyApi {
     $.ajax(ajaxConfigObject);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+var weather = new DarkskyApi(33.635009,-117.740030);
+console.log(weather.getWeatherData());
