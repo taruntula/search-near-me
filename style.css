@@ -100,8 +100,44 @@ body,html {
     left: 13px;
 }
 .yelp {
-    display: inline-block;
     background: red;
     height: 70%;
-    width: 99%;
+    width: 100%;
+}
+
+.tableHead {
+    display: flex;
+	border-bottom: 1px solid black;
+	width: 99%;
+}
+
+.place,
+.price,
+.distance {
+    background-color: black;
+	color: white;
+	font-weight: bold;
+}
+
+.price {
+    width: 15%;
+}
+
+.place {
+    width: 60%;
+}
+
+.distance {
+    width: 25%;
+}
+
+.tableHeader0,
+.tableHeader1 {
+	display: flex;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+.tableHeader0 > * {
+	border-right: 1px solid black;
+	padding-left: .5%;
 }
