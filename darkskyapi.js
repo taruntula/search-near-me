@@ -16,7 +16,7 @@ class DarkskyApi {
         console.log("SUCCESS", result);
         var currentIcon = result.currently.icon;
         self.currentIcon = currentIcon;
-        var currentWeather = result.currently.temperature;
+        var currentWeather = result.currently.temperature +"ºF";
         self.currentWeather = currentWeather;
         var currentLocation = result.timezone;
         self.currentLocation = currentLocation;
