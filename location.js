@@ -13,8 +13,12 @@ class Location {
         api_key: '1a1994f66f98738ef0680c97975ec64c',
 
       },
-      success:
-      error:
+      success: function(response){
+          console.log('response ', response)
+      }
+      error: function(response){
+        console.log('response ', response)
+      }
     }
 
 
