@@ -3,6 +3,7 @@ class DarkskyApi {
     this.longitude = longitude;
     this.latitude = latitude;
     this.currentWeather = "";
+    this.currentLocation = "";
     this.weatherIcon = "";
   }
   getWeatherData() {
@@ -17,6 +18,8 @@ class DarkskyApi {
         self.currentIcon = currentIcon;
         var currentWeather = result.currently.temperature;
         self.currentWeather = currentWeather;
+        var currentLocation = result.timezone;
+        self.currentLocation = currentLocation;
         var iconDiv = $(".weather-icon");
         switch (currentIcon) {
           case "clear-day":
@@ -54,10 +57,14 @@ class DarkskyApi {
         }
         // debugger;
         var shortForecast = result.daily.summary;
+        var timeZoneDiv = $(".time-zone");
         var forecastText = $("<div>").text(shortForecast);
+        var timeZoneText = $("<div>").text(currentLocation);
         var dailyForecast = $(".icon-description");
+        timeZoneDiv.append(timeZoneText);
         dailyForecast.append(forecastText);
         iconDiv.append(weatherDiv);
+
       },
       error: function (jqXHR, status, errorThrown) {
         console.log("ERROR");
