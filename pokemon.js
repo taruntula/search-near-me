@@ -5,12 +5,12 @@ class Pokemon{
     this.pokemonImageAddress = image;
     this.temperature = temperature;
     this.pokemonBasedOnTemp = "";
-    this.weather = "rain";
-    this.weatherPokemon = this.checkWeather();
+    this.weather = weather;
+    this.weatherPokemon = this.checkWeather(this.weather);
   }
 
 
-getPokemonData(){
+  getPokemonData(){
   var self = this;
   var ajaxConfigObject ={
     dataType: 'json',
@@ -31,21 +31,19 @@ $.ajax(ajaxConfigObject);
 }
 
 checkTemperature(temperature) {
-  if (temperature >= 0 && temperature <= 75) {
+  if (temperature >= 0 && temperature <= 75){
     this.pokemonBasedOnTemp = this.result.results[143];
   }
   if(temperature >=75 && temperature <=80){
     this.pokemonBasedOnTemp = this.result.results[3].name;
-  }else if (temperature >= 81 && temperature <=86){
+  } else if (temperature >= 81 && temperature <=86){
     this.pokemonBasedOnTemp = this.result.results[4].name;
-  }else if( temperature >=87 && temperature <= 110){
+  } else if( temperature >=87 && temperature <= 110){
     this.pokemonBasedOnTemp = this.result.results[5].name;
   }
+}
 
-
-  }
 checkWeather(weather){
-
   switch(weather){
       case "tornado":
         this.weatherPokemon = this.result.results[640].name;
@@ -80,13 +78,9 @@ checkWeather(weather){
       case "rain":
         this.weatherPokemon = this.result.results[481].name;
         break;
-
-
-  }
+    }
   return this.weatherPokemon;
-
-
-}
+  }
 }
 
 var pokegay = new Pokemon();
