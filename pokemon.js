@@ -2,7 +2,7 @@ class Pokemon{
   constructor (temperature, weather){
     this.resultName = null;
     this.resultImage = null;
-    this.pokemonName = name;
+    this.pokemonName = 1;
     this.pokemonImage = null;
     this.temperature = temperature;
     this.pokemonBasedOnTemp = "";
@@ -36,9 +36,9 @@ getPokemonImage() {
   var ajaxConfig = {
     dataType: 'json',
     url: 'https://pokeapi.co/api/v2/pokemon/' + this.pokemonName,
-    method: 'get',
+    method: 'GET',
     success: function(result) {
-      console.log('pokemon Images:', result);
+      console.log('pokemon Images:', result.sprites["front_default"]);
       self.resultImage = result;
       self.pokemonImage;
     },
@@ -81,11 +81,11 @@ checkWeather (weather) {
         this.weatherPokemon = this.result.results[3].name;
         break;
       case 'thunderstorm':
-        this.weatherPokemon = this.result.results[3].name;
+        this.weatherPokemon = this.result.results[144].name;
     }
   return this.weatherPokemon;
   }
 }
 
 var pokegay = new Pokemon();
-console.log(pokegay.getPokemonData());
+console.log(pokegay.getPokemonImage());
