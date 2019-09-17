@@ -42,7 +42,7 @@ getPokemonImage() {
       self.resultImage = result;
       self.pokemonImage = result.sprites["front_default"];
       //var appendImage = $('.pokemon').append.css(self.pokemonImage);
-      var pokeImage = $('<img>').attr('src', self.pokemonImage);
+      var pokeImage = $('<img>').addClass('pokeImage').attr('src', self.pokemonImage);
       var appendImage = $('.pokemon').append(pokeImage);
     },
     error: function(result) {
