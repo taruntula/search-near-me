@@ -23,11 +23,12 @@ class DarkskyApi {
         this.weatherIcon = weatherIcon;
         var currentWeather = result.currently.temperature;
         this.currentWeather = parseFloat(currentWeather);
+        var displayWeather = Math.floor(currentWeather);
         var currentLocation = result.timezone;
         this.currentLocation = currentLocation;
+        var currentWeatherDiv = $(".current-weather");
         var weatherContainer = $(".weather-container");
         var iconDiv = $(".weather-icon");
-        var weatherContainer = $('.weather-container');
         switch (weatherIcon) {
           case "clear-day":
             var weatherDiv = $("<i>").addClass("fas fa-sun");
@@ -91,6 +92,7 @@ class DarkskyApi {
         var timeZoneText = $("<div>").text(currentLocation).css('position','relative');
         var dailyForecast = $(".icon-description");
         timeZoneDiv.append(timeZoneText);
+        currentWeatherDiv.text(displayWeather+"ºF   ");
         dailyForecast.append(forecastText);
         iconDiv.append(weatherDiv);
         var pokemon = new Pokemon(this.currentWeather, this.weatherIcon);

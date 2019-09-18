@@ -10,6 +10,8 @@ class Location {
     this.returnZip = this.returnZip.bind(this);
     this.radius = radius;
     this.searchTerm = searchTerm;
+    this.city = null;
+    this.state = null;
   }
   getLocation () {
     var ajaxConfigObject = {
