@@ -2,6 +2,11 @@ body,html {
   height: 100%;
   width: 100%;
 }
+/* .zipcode {
+  height: 50%;
+  width: 50%;
+  background: pink;
+} */
 .big-weather-container {
     background: lightblue;
     display: inline-block;
@@ -17,7 +22,7 @@ body,html {
     height: 96%;
     width: 99%;
     border-radius: 20px 20px 20px 20px;
-    background-image: url('rain-background.jpg');
+    /* background-image: url('rain-background.jpg'); */
     background-position: center;
     background-size: cover;
     top: 6px;
