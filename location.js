@@ -1,35 +1,37 @@
 class Location {
-  constructor(){
+  constructor( gotLocationCallback ){
     this.longitude = this.longitude;
     this.latitude = this.latitude;
     this.zipCode = this.zipCode;
+    this.locationCallback = gotLocationCallback;
     this.response = null;
 
   }
   getLocation () {
-    var self = this;
+    //var self = this;
     var ajaxConfigObject = {
       dataType: 'json',
-      //url: 'http://api.ipstack.com/' + this.ipAddress + '?access_key=1a1994f66f98738ef0680c97975ec64c',
       url: 'http://api.ipstack.com/check?access_key=1a1994f66f98738ef0680c97975ec64c',
       method: 'Get',
       data: {
         access_key: '1a1994f66f98738ef0680c97975ec64c',
 
       },
-      success: function(response){
-          self.response = response;
-          console.log('response ', response)
-          self.longitude = response.longitude;
-          console.log('longitude', self.longitude);
-          self.latitude = response.latitude;
-          console.log('latitude', self.latitude);
-          self.zipCode = response.zip;
-          console.log('zipcode', self.zipCode);
+      success: (response)=>{
+        //debugger
+          this.longitude = response.longitude;
+          //console.log('longitude', this.longitude);
+          this.latitude = response.latitude;
+          //console.log('latitude', this.latitude);
+          this.zipCode = response.zip;
+          //console.log('zipcode', this.zipCode);
+          this.response = response;
+          console.log(response);
+          this.locationCallback(this.latitude, this.longitude);
       },
       error: function(response){
         console.log('response ', response)
-      }
+      }.bind(this)
     }
 
 
@@ -37,10 +39,10 @@ class Location {
 
   }
 
-  createWeatherObj() {
-    var weather = new DarkskyApi(this.longitude, this.latitude);
-  }
+
+  // returnUserLocation() {
+
+
+  // }
 
 }
-var getAjaxCall = new Location;
-console.log(getAjaxCall.getLocation());

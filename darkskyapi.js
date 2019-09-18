@@ -1,32 +1,30 @@
+var userLocation;
+
 class DarkskyApi {
-  constructor(longitude,latitude){
-    this.longitude = longitude;
-    this.latitude = latitude;
+  constructor(){
+    this.longitude = null;
+    this.latitude = null;
     this.currentWeather = "";
     this.currentLocation = "";
     this.weatherIcon = "";
   }
 
-  // setLocation() {
-  //   var locationObject = new Location();
-  //   this.longitude = locationObject.longitude;
-  //   this.latitude = locationObject.latitude;
-  // }
-
-  getWeatherData() {
-    var self = this;
+  getWeatherData(latitude, longitude) {
+    this.longitude = longitude;
+    this.latitude = latitude;
+    //debugger;
     var ajaxConfigObject = {
       dataType: 'json',
-      url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/57024ed6d2133cb3fa08bc57de5d4926/'+self.longitude+','+self.latitude,
+      url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/57024ed6d2133cb3fa08bc57de5d4926/'+this.longitude+','+this.latitude,
       method: "GET",
-      success: function (result) {
+      success:  (result)=> {
         console.log("SUCCESS", result);
         var weatherIcon = result.currently.icon;
-        self.weatherIcon = weatherIcon;
+        this.weatherIcon = weatherIcon;
         var currentWeather = result.currently.temperature +"ºF";
-        self.currentWeather = currentWeather;
+        this.currentWeather = currentWeather;
         var currentLocation = result.timezone;
-        self.currentLocation = currentLocation;
+        this.currentLocation = currentLocation;
         var weatherContainer = $(".weather-container");
         var iconDiv = $(".weather-icon");
         var weatherContainer = $('.weather-container');
@@ -88,7 +86,7 @@ class DarkskyApi {
         iconDiv.append(weatherDiv);
 
       },
-      error: function (jqXHR, status, errorThrown) {
+      error:  (jqXHR, status, errorThrown) =>{
         console.log("ERROR");
         console.log("jqXHR", jqXHR);
         console.log("status", status);
@@ -104,5 +102,5 @@ class DarkskyApi {
 
 }
 
-var weather = new DarkskyApi(33.635009,-117.740030);
-console.log(weather.getWeatherData());
+// var weather = new DarkskyApi(userLocation.longitude,userLocation.latitude);
+// console.log(weather.getWeatherData());
