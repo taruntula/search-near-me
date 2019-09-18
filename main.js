@@ -1,17 +1,17 @@
 $(document).ready(initApp);
 
 
-//var userLocation;
-var weather = new DarkskyApi();
-
-//debugger
-var getAjaxCall = new Location( weather.getWeatherData );
-console.log(getAjaxCall.getLocation());
-
 function initApp() {
   $('.searchButton').click(function() {
     var searchValue = $('#search').val();
     var radiusValue = parseInt($('#radius').val());
+    //var userLocation;
+    var weather = new DarkskyApi();
+
+    //debugger
+    var getAjaxCall = new Location(weather.getWeatherData, radiusValue, searchValue);
+    yelp.apiRequest();
+    console.log(getAjaxCall.getLocation());
     window.location.href = './page2/page2.html';
   })
 }
