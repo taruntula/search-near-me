@@ -20,7 +20,9 @@ body,html {
     /* height: 200px; */
     text-align: center;
     top: 300px;
-    font-size: 50px;
+    font-size: 59px;
+    font-family: cursive;
+    color: seashell;
     /* vertical-align: middle; */
 }
 .food-search {
@@ -39,6 +41,42 @@ body,html {
 #search,#radius {
   height: 10%;
   width: 30%;
+  border: 3px solid #00B4CC;
+}
+.button {
+  border-radius: 12px;
+  background-color: #F45142;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 23px;
+  padding: 12px;
+  width: 179px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 
