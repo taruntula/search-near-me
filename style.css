@@ -4,6 +4,8 @@ body,html {
   margin: 0;
   background-image: url('morningbg.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 .background{
@@ -217,7 +219,8 @@ body,html {
 .yelp {
     height: 72%;
     width: 100%;
-    overflow: scroll;
+    overflow: scroll; 
+
 }
 
 .tableHead,
@@ -243,19 +246,24 @@ tr:nth-of-type(1) { /* table header */
 .priceHead {
     width: 15%;
     padding: 8px;
-    font-family: cursive;
+    /* font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Crimson Text', serif; */
+    font-family: 'Noto Sans KR', sans-serif;
+   
 }
 
 .place,
 .placeHead {
     width: 60%;
     padding: 8px;
+   font-family: 'Lora', serif;
 }
 
 .rating,
 .ratingHead {
     width: 25%;
     padding: 8px;
+    font-family: 'Lora', serif;
 }
 
 .price,
@@ -263,9 +271,7 @@ tr:nth-of-type(1) { /* table header */
 .rating {
     font-size: 20px;
     color: white;
-    /* font-family: font-family: 'Ubuntu', sans-serif; */
-    /* font-family: 'Crimson Text', serif; */
-    font-family: 'Crimson Text', serif;
+    font-family: 'Lora', serif;
 }
 
 
