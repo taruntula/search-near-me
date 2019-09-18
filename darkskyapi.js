@@ -1,4 +1,4 @@
-var userLocation;
+//var userLocation;
 
 class DarkskyApi {
   constructor(){
@@ -10,12 +10,12 @@ class DarkskyApi {
   }
 
   getWeatherData(latitude, longitude) {
-    this.longitude = longitude;
     this.latitude = latitude;
+    this.longitude = longitude;
     //debugger;
     var ajaxConfigObject = {
       dataType: 'json',
-      url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/57024ed6d2133cb3fa08bc57de5d4926/'+this.longitude+','+this.latitude,
+      url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/57024ed6d2133cb3fa08bc57de5d4926/'+this.latitude+','+this.longitude,
       method: "GET",
       success:  (result)=> {
         console.log("SUCCESS", result);
