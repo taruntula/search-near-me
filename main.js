@@ -2,7 +2,7 @@ $(document).ready(initApp);
 
 
 function initApp() {
-  debugger;
+  //debugger;
   $('.searchButton').click(function() {
     var searchValue = $('#search').val();
     var radiusValue = parseInt($('#radius').val());
