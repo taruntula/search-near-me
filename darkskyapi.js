@@ -29,6 +29,7 @@ class DarkskyApi {
         self.currentLocation = currentLocation;
         var weatherContainer = $(".weather-container");
         var iconDiv = $(".weather-icon");
+        var weatherContainer = $('.weather-container');
         switch (weatherIcon) {
           case "clear-day":
             var weatherDiv = $("<i>").addClass("fas fa-sun");
