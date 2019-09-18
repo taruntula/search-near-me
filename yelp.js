@@ -1,12 +1,13 @@
 class Yelp {
-  constructor (zipCode, radiusInMiles, searchTerm) {
-    this.zipCode = zipCode;
+  constructor (getZip, radiusInMiles, searchTerm) {
+    //this.zipCode = zipCode;
     this.radius = this.convertMilesToMeters(radiusInMiles);
     this.response = null;
     this.term = searchTerm; // will be $('selector').val() to grab value from input field.
+    this.zipCode = getZip();
   }
 
-  apiRequest() {
+  apiRequest(zipCode) {
     var self = this;
     var ajaxConfig = {
       dataType: 'json',
@@ -18,11 +19,11 @@ class Yelp {
       data: {
         location: self.zipCode,
         radius: self.radius,
-        term: this.term,
+        term: self.term,
       },
       success: function(response) {
         console.log("Yelp:",response);
-        self.response = response;
+        this.response = response;
         var newTable = $('<tr>').addClass('tableHead tableFormat');
         $('.yelp').append(newTable);
         for (let i = 0; i < response.businesses.length; i++) {
@@ -56,10 +57,11 @@ class Yelp {
             }
           }
         }
-      },
+        this.getLocationCallback(this.zipCode);
+      }.bind(this),
       error: function (response) {
         console.log("Yelp error:", response);
-      }
+      }.bind(this),
     };
     $.ajax(ajaxConfig);
   }
@@ -68,6 +70,3 @@ class Yelp {
     return miles * 1609;
   }
 }
-
-var yelp = new Yelp(92782, 10, 'sushi');
-yelp.apiRequest();
