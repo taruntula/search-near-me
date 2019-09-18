@@ -14,14 +14,14 @@ class DarkskyApi {
       method: "GET",
       success: function (result) {
         console.log("SUCCESS", result);
-        var currentIcon = result.currently.icon;
-        self.currentIcon = currentIcon;
+        var weatherIcon = result.currently.icon;
+        self.weatherIcon = weatherIcon;
         var currentWeather = result.currently.temperature +"ºF";
         self.currentWeather = currentWeather;
         var currentLocation = result.timezone;
         self.currentLocation = currentLocation;
         var iconDiv = $(".weather-icon");
-        switch (currentIcon) {
+        switch (weatherIcon) {
           case "clear-day":
             var weatherDiv = $("<i>").addClass("fas fa-sun");
             break;
@@ -82,5 +82,5 @@ class DarkskyApi {
 
 }
 
-var weather = new DarkskyApi(33.635009,-117.740030);
-console.log(weather.getWeatherData());
+// var weather = new DarkskyApi(33.635009,-117.740030);
+// console.log(weather.getWeatherData());

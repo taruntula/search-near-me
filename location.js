@@ -18,14 +18,14 @@ class Location {
 
       },
       success: function(response){
-          this.response = response;
+          self.response = response;
           console.log('response ', response)
           self.longitude = response.longitude;
-          console.log('longitude', this.longitude);
+          console.log('longitude', self.longitude);
           self.latitude = response.latitude;
-          console.log('latitude', this.latitude);
+          console.log('latitude', self.latitude);
           self.zipCode = response.zip;
-          console.log('zipcode', this.zipCode);
+          console.log('zipcode', self.zipCode);
       },
       error: function(response){
         console.log('response ', response)
@@ -37,9 +37,8 @@ class Location {
 
   }
 
-  createObjects() {
+  createWeatherObj() {
     var weather = new DarkskyApi(this.longitude, this.latitude);
-    return weather;
   }
 
 }

@@ -23,13 +23,21 @@ class Yelp {
       success: function(response) {
         console.log("Yelp:",response);
         self.response = response;
-        var newTable = $('<tr>').addClass('tableHead');
+        var newTable = $('<tr>').addClass('tableHead tableFormat');
         $('.yelp').append(newTable);
         for (let i = 0; i < response.businesses.length; i++) {
+          var tableRow = $('<tr>').addClass('tableRow' + i + ' tableFormat');
+          var tableData = $('<td>').addClass('tableData' + i + ' place').text(businessName);
+          var tableData2 = $('<td>').addClass('tableData' + i + ' rating').text(businessRating);
+          var tableData3 = $('<td>').addClass('tableData' + i + ' price').text(businessPrice);
           var yelpDiv = $('<div>').addClass('yelpBusiness' + i);
           var businessName = response.businesses[i].name;
-          $('.yelp').append(yelpDiv);
-          yelpDiv.text(businessName);
+          var businessRating = response.businesses[i].rating;
+          var businessPrice = response.businesses[i].price;
+          $('.yelp').append(tableRow);
+          //$('.yelpBusiness' + i).append(tableRow);
+          tableRow.append(tableData3, tableData, tableData2);
+          tableData.text(businessName);
           if (i < 3) {
             var tableHeader = $('<th>');
             switch (i) {
@@ -43,7 +51,7 @@ class Yelp {
                 break;
               case 2:
                 newTable.append(tableHeader);
-                tableHeader.addClass('tableHeader distance').text('DISTANCE');
+                tableHeader.addClass('tableHeader rating').text('RATING');
                 break;
             }
           }
