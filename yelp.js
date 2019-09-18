@@ -58,7 +58,7 @@ class Yelp {
             }
           }
         }
-        this.getLocationCallback(this.zipCode);
+        // this.getLocationCallback(this.zipCode);
       }.bind(this),
       error: function (response) {
         console.log("Yelp error:", response);
