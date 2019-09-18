@@ -4,6 +4,8 @@ body,html {
   margin: 0;
   background-image: url('morningbg.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 .background{
@@ -193,21 +195,42 @@ body,html {
 
 
 .pokemon {
-    display: inline-block;
+    display: flex;
     height: 28%;
     width: 41%;
     /* background: yellow; */
     left: 13px;
 }
+
+.pokeText {
+    display: flex;
+    align-self: center;
+    text-align: center;
+    height: 25%;
+    width: 50%;
+    left: 10%;
+    bottom: 30%;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid gray;
+    background-color: rgba(112, 111, 111, 0.5);
+}
+
+.pokeImage {
+  display: flex;
+  height: 100%;
+}
+
 .yelp {
     height: 72%;
     width: 100%;
-    overflow: scroll;
+    overflow: scroll; 
+
 }
 
 .tableHead,
 .tableFormat {
-    display: flex;
+  display: flex;
 	border-bottom: 1px dotted gray;
 	width: 100%;
 }
@@ -228,19 +251,24 @@ tr:nth-of-type(1) { /* table header */
 .priceHead {
     width: 15%;
     padding: 8px;
-    font-family: cursive;
+    /* font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Crimson Text', serif; */
+    font-family: 'Noto Sans KR', sans-serif;
+   
 }
 
 .place,
 .placeHead {
     width: 60%;
     padding: 8px;
+   font-family: 'Lora', serif;
 }
 
 .rating,
 .ratingHead {
     width: 25%;
     padding: 8px;
+    font-family: 'Lora', serif;
 }
 
 .price,
@@ -248,9 +276,7 @@ tr:nth-of-type(1) { /* table header */
 .rating {
     font-size: 20px;
     color: white;
-    /* font-family: font-family: 'Ubuntu', sans-serif; */
-    /* font-family: 'Crimson Text', serif; */
-    font-family: 'Crimson Text', serif;
+    font-family: 'Lora', serif;
 }
 
 
