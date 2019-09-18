@@ -3,6 +3,8 @@ body,html {
   width: 100%;
   background-image: url('morningbg.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 .background{
@@ -197,6 +199,7 @@ body,html {
     
     height: 72%;
     width: 100%;
+    overflow: scroll; 
 }
 
 .tableHead,
@@ -227,12 +230,14 @@ tr:nth-of-type(1) { /* table header */
 .place,
 .placeHead {
     width: 60%;
+    padding: 8px;
     
 }
 
 .rating,
 .ratingHead {
     width: 25%;
+    padding: 8px;
 }
 
 .price,
