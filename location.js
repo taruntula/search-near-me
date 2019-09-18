@@ -8,6 +8,8 @@ class Location {
     this.returnZip = this.returnZip.bind(this);
     this.radius = radius;
     this.searchTerm = searchTerm;
+    this.city = null;
+    this.state = null;
   }
   getLocation () {
     var ajaxConfigObject = {
@@ -24,7 +26,11 @@ class Location {
           this.latitude = response.latitude;
           this.zipCode = response.zip;
           this.response = response;
+          this.city= response.city;
+          this.state = response["region_code"];
           console.log(response);
+          var currentLocationP = $("<p>").text(`${this.city}, ${this.state} ${this.zipCode}`);
+          $(".initial-location").append(currentLocationP);
           this.locationCallback(this.latitude, this.longitude);
           var yelp = new Yelp(this.returnZip, this.radius, this.searchTerm);
           yelp.apiRequest();

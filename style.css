@@ -31,7 +31,7 @@ body,html {
 }
 .food-search {
     color: white;
-    font-size: 63px;
+    font-size: 45px;
     text-shadow: 1px 1px black,
                 2px 2px black,
                 3px 3px black;
@@ -174,16 +174,21 @@ body,html {
     width: 100%;
     /* background: powderblue; */
     font-size: 36px;
+    justify-content: space-evenly;
+  }
+
+.current-weather {
+
 }
 
 .gps-icon {
-  /* display: inline-block; */
-  /* float: left; */
-  /* background: purple; */
-  left: 13px;
-  /* position: relative; */
-  left: 25px;
-  color: lightblue;
+    /* display: inline-block; */
+    /* float: left; */
+    /* background: purple; */
+    left: 13px;
+    position: relative;
+    left: 20px;
+    color: lightblue;
 }
 
 
