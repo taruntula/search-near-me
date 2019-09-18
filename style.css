@@ -188,12 +188,32 @@ body,html {
 
 
 .pokemon {
-    display: inline-block;
+    display: flex;
     height: 28%;
     width: 41%;
     /* background: yellow; */
     left: 13px;
 }
+
+.pokeText {
+    display: flex;
+    align-self: center;
+    text-align: center;
+    height: 25%;
+    width: 50%;
+    left: 10%;
+    bottom: 30%;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid gray;
+    background-color: rgba(112, 111, 111, 0.5);
+}
+
+.pokeImage {
+  display: flex;
+  height: 100%;
+}
+
 .yelp {
     height: 72%;
     width: 100%;
@@ -202,7 +222,7 @@ body,html {
 
 .tableHead,
 .tableFormat {
-    display: flex;
+  display: flex;
 	border-bottom: 1px dotted gray;
 	width: 100%;
 }
