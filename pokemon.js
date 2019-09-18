@@ -1,8 +1,9 @@
 class Pokemon{
   constructor (temperature, weather){
+    this.result = null;
     this.resultName = null;
     this.resultImage = null;
-    this.pokemonName = 1;
+    this.pokemonName = null;
     this.pokemonImage = null;
     this.temperature = temperature;
     this.pokemonBasedOnTemp = "";
@@ -19,13 +20,13 @@ getPokemonData(){
     method: "GET",
     success: function(result){
       console.log("success", result, '\nselect bulbasaur:', result.results[0].name);
-      self.result = result;
-    },
+      this.result = result;
+    }.bind(this),
     error:function(jqXHr,status,errorThrown){
       console.log("error");
-      console.log("jqXHR", jqXHr);
-      console.log("status", status);
-      console.log("errorThrown", errorThrown);
+      // console.log("jqXHR", jqXHr);
+      // console.log("status", status);
+      // console.log("errorThrown", errorThrown);
     }
   }
 $.ajax(ajaxConfigObject);
@@ -35,16 +36,16 @@ getPokemonImage() {
   var self = this;
   var ajaxConfig = {
     dataType: 'json',
-    url: 'https://pokeapi.co/api/v2/pokemon/' + this.pokemonName,
+    url: this.pokemonName.url,
     method: 'GET',
     success: function(result) {
       console.log('pokemon Images:', result.sprites["front_default"]);
-      self.resultImage = result;
-      self.pokemonImage = result.sprites["front_default"];
+      this.resultImage = result;
+      this.pokemonImage = result.sprites["front_default"];
       //var appendImage = $('.pokemon').append.css(self.pokemonImage);
-      var pokeImage = $('<img>').addClass('pokeImage').attr('src', self.pokemonImage);
-      var appendImage = $('.pokemon').append(pokeImage);
-    },
+      var pokeImage = $('<img>').addClass('pokeImage').attr('src', this.pokemonImage);
+      $('.pokemon').append(pokeImage);
+    }.bind(this),
     error: function(result) {
       console.log('pokemonApi result:', result);
     }
@@ -53,17 +54,18 @@ getPokemonImage() {
 }
 
 checkTemperature (temperature) {
+  debugger;
   if (temperature >= 0 && temperature <= 75){
     this.pokemonBasedOnTemp = this.result.results[143].name;
-    this.pokemonName = this.result.results[143].name;
+    this.pokemonName = this.result.results[143];
   }
   if(temperature >=75 && temperature <=80){
     this.pokemonBasedOnTemp = this.result.results[3].name;
-    this.pokemonName = this.result.results[3].name;
+    this.pokemonName = this.result.results[3];
   } else if (temperature >= 81 && temperature <=86){
     this.pokemonBasedOnTemp = this.result.results[4].name;
-    this.pokemonName = this.result.results[4].name;
-  } else if( temperature >=87 && temperature <= 110){
+    this.pokemonName = this.result.results[4];
+  } else if(temperature >=87 && temperature <= 110){
     this.pokemonBasedOnTemp = this.result.results[5].name;
     this.pokemonName = this.result.results[5].name;
   }
@@ -95,7 +97,12 @@ checkWeather (weather) {//add images
     }
   return this.weatherPokemon;
   }
+
+  checkTemperatureAndGetImage() {
+    this.checkTemperature(this.temperature);
+    this.getPokemonImage();
+  }
 }
 
-var pokegay = new Pokemon();
-console.log(pokegay.getPokemonImage());
+// var pokegay = new Pokemon();
+// console.log(pokegay.getPokemonImage());

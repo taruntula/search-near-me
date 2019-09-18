@@ -21,8 +21,8 @@ class DarkskyApi {
         console.log("SUCCESS", result);
         var weatherIcon = result.currently.icon;
         this.weatherIcon = weatherIcon;
-        var currentWeather = result.currently.temperature +"ºF";
-        this.currentWeather = currentWeather;
+        var currentWeather = result.currently.temperature;
+        this.currentWeather = parseFloat(currentWeather);
         var currentLocation = result.timezone;
         this.currentLocation = currentLocation;
         var weatherContainer = $(".weather-container");
@@ -93,6 +93,8 @@ class DarkskyApi {
         timeZoneDiv.append(timeZoneText);
         dailyForecast.append(forecastText);
         iconDiv.append(weatherDiv);
+        var pokemon = new Pokemon(this.currentWeather, this.weatherIcon);
+        pokemon.checkTemperatureAndGetImage();
 
       },
       error:  (jqXHR, status, errorThrown) =>{
