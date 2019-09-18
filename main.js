@@ -2,7 +2,6 @@ $(document).ready(initApp);
 
 
 function initApp() {
-  debugger;
   $('.searchButton').click(function() {
     var searchValue = $('#search').val();
     var radiusValue = parseInt($('#radius').val());
@@ -12,6 +11,8 @@ function initApp() {
     //debugger
     var getAjaxCall = new Location(weather.getWeatherData, radiusValue, searchValue);
     console.log(getAjaxCall.getLocation());
+    $('.modal').removeClass('visible');
+    $('.modal').addClass('hidden');
     // window.location.href = './page2/page2.html';
   })
 }
