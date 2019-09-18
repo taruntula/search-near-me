@@ -1,6 +1,7 @@
 body,html {
   height: 100%;
   width: 100%;
+  margin: 0;
   background-image: url('morningbg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -196,10 +197,10 @@ body,html {
     left: 13px;
 }
 .yelp {
-    
     height: 72%;
     width: 100%;
     overflow: scroll; 
+
 }
 
 .tableHead,
@@ -215,6 +216,7 @@ body,html {
 }
 
 tr:nth-of-type(1) { /* table header */
+    position: fixed;
     background-color: black;
 	color: white;
 	font-weight: bold;
@@ -231,7 +233,7 @@ tr:nth-of-type(1) { /* table header */
 .placeHead {
     width: 60%;
     padding: 8px;
-    
+
 }
 
 .rating,

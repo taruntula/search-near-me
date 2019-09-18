@@ -94,7 +94,7 @@ class DarkskyApi {
         dailyForecast.append(forecastText);
         iconDiv.append(weatherDiv);
         var pokemon = new Pokemon(this.currentWeather, this.weatherIcon);
-        pokemon.checkTemperatureAndGetImage();
+        pokemon.getPokemonData();
 
       },
       error:  (jqXHR, status, errorThrown) =>{
