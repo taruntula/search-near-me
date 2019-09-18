@@ -79,7 +79,6 @@ body,html {
   right: 0;
 }
 
-
 .big-weather-container {
     background: lightblue;
     display: inline-block;
@@ -178,7 +177,9 @@ body,html {
     left: 13px;
 }
 .yelp {
-    background: red;
+    background-image: url('./pastelBackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 70%;
     width: 100%;
 }
