@@ -32,7 +32,7 @@ class Location {
           this.locationCallback(this.latitude, this.longitude);
           debugger;
           var yelp = new Yelp(this.returnZip, this.radius, this.searchTerm);
-          yelp.apiRequest();
+          //yelp.apiRequest();
       },
       error: function(response){
         console.log('response ', response)
