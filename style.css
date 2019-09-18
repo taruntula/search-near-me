@@ -50,7 +50,7 @@ body,html {
 
 
 .big-weather-container {
-    background: lightblue;
+    /* background: lightblue; */
     display: inline-block;
     height: 28%;
     width: 58%;
@@ -83,20 +83,33 @@ body,html {
                 2px 2px black,
                 3px 3px black;
     position: relative;
-    height: 78%;
-    width: 26%;
+    height: 100%;
+    width: 16%;
     /* background: red; */
-    top: 40px;
+    top: 23px;
     left: 36px;
-    font-size: 152px;
+    font-size: 130px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  height: 95%;
+  width: 76%;
+  position: relative;
+  /* left: 15px; */
+  justify-content: space-between;
+  left: 62px;
+  top: 23px;
 }
 .icon-description {
-    display: inline-block;
-    position: relative;
+    /* display: inline-block;
+    position: relative; */
     border-radius: 20px 20px 20px 20px;
     top: 34px;
     height: 45%;
-    width: 71%;
+    width: 100%;
     color: white;
     text-shadow: 1px 1px black,
                 2px 2px black,
@@ -104,39 +117,42 @@ body,html {
     text-align: center;
     /* background: green; */
     left: 19px;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 .time-zone {
-    display: inline-block;
+    /* display: inline-block; */
+    display: flez;
+    display: flex;
     border-radius: 20px 20px 20px 20px;
     top: 31px;
     left: 159px;
     color: white;
-    position: relative;
+    /* position: relative; */
     text-align: center;
     text-shadow: 1px 1px black, 2px 2px black, 3px 3px black;
-    height: 23%;
-    width: 38%;
+    height: 50%;
+    width: 100%;
     /* background: powderblue; */
-    font-size: 38px;
+    font-size: 36px;
 }
 
 .gps-icon {
   /* display: inline-block; */
-  float: left;
+  /* float: left; */
   /* background: purple; */
   left: 13px;
-  position: relative;
-  left: 18px;
+  /* position: relative; */
+  left: 25px;
   color: lightblue;
 }
+
 
 .pokemon {
     display: inline-block;
     height: 28%;
     width: 41%;
-    background: yellow;
+    /* background: yellow; */
     left: 13px;
 }
 .yelp {
