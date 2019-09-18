@@ -13,15 +13,16 @@ class Pokemon{
 
 
 getPokemonData(){
-  var self = this;
+  // var self = this;
   var ajaxConfigObject ={
     dataType: 'json',
     url: "https://pokeapi.co/api/v2/pokemon/?limit=800",
     method: "GET",
-    success: function(result){
+    success: (result) => {
       console.log("success", result, '\nselect bulbasaur:', result.results[0].name);
       this.result = result;
-    }.bind(this),
+      this.checkTemperatureAndGetImage();
+    },
     error:function(jqXHr,status,errorThrown){
       console.log("error");
       // console.log("jqXHR", jqXHr);
@@ -33,7 +34,7 @@ $.ajax(ajaxConfigObject);
 }
 
 getPokemonImage() {
-  var self = this;
+  // var self = this;
   var ajaxConfig = {
     dataType: 'json',
     url: this.pokemonName.url,
@@ -54,7 +55,6 @@ getPokemonImage() {
 }
 
 checkTemperature (temperature) {
-  debugger;
   if (temperature >= 0 && temperature <= 75){
     this.pokemonBasedOnTemp = this.result.results[143].name;
     this.pokemonName = this.result.results[143];
