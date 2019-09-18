@@ -6,6 +6,13 @@ class DarkskyApi {
     this.currentLocation = "";
     this.weatherIcon = "";
   }
+
+  // setLocation() {
+  //   var locationObject = new Location();
+  //   this.longitude = locationObject.longitude;
+  //   this.latitude = locationObject.latitude;
+  // }
+
   getWeatherData() {
     var self = this;
     var ajaxConfigObject = {
@@ -24,42 +31,55 @@ class DarkskyApi {
         switch (weatherIcon) {
           case "clear-day":
             var weatherDiv = $("<i>").addClass("fas fa-sun");
+            iconDiv.css('color','yellow');
+            weatherContainer.css('background-image','url(clear-day-background.jpeg)');
             break;
           case "clear-night":
             var weatherDiv = $("<i>").addClass("fas fa-moon");
+            iconDiv.css('color', 'white');
             break;
           case "rain":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-rain");
+            iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(rain-background.jpg)');
             break;
           case "snow":
             var weatherDiv = $("<i>").addClass("fas fa-snowflake");
+            iconDiv.css('color', 'white');
             break;
           case "sleet":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-showers-heavy");
+            iconDiv.css('color', 'white');
             break;
           case "wind":
             var weatherDiv = $("<i>").addClass("fas fa-wind");
+            iconDiv.css('color', 'white');
             break;
           case "fog":
             var weatherDiv = $("<i>").addClass("fas fa-smog");
+            iconDiv.css('color', 'white');
             break;
           case "cloudy":
             var weatherDiv = $("<i>").addClass("fas fa-cloud");
+            iconDiv.css('color', 'white');
             break;
           case "partly-cloudy-day":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-sun");
+            iconDiv.css('color', 'white');
             break;
           case "partly-cloudy-night":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-moon");
+            iconDiv.css('color', 'white');
             break;
           default:
             var weatherDiv = $("<i>").addClass("far fa-sun");
+            iconDiv.css('color', 'yellow');
         }
         // debugger;
         var shortForecast = result.daily.summary;
         var timeZoneDiv = $(".time-zone");
-        var forecastText = $("<div>").text(shortForecast);
-        var timeZoneText = $("<div>").text(currentLocation);
+        var forecastText = $("<div>").text(shortForecast).css('position','relative');
+        var timeZoneText = $("<div>").text(currentLocation).css('position','relative');
         var dailyForecast = $(".icon-description");
         timeZoneDiv.append(timeZoneText);
         dailyForecast.append(forecastText);
