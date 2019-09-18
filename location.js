@@ -30,7 +30,9 @@ class Location {
           this.response = response;
           console.log(response);
           this.locationCallback(this.latitude, this.longitude);
+          debugger;
           var yelp = new Yelp(this.returnZip, this.radius, this.searchTerm);
+          yelp.apiRequest();
       },
       error: function(response){
         console.log('response ', response)
@@ -45,11 +47,4 @@ class Location {
   returnZip() {
     return this.zipCode;
   }
-
-
-  // returnUserLocation() {
-
-
-  // }
-
 }
