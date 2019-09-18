@@ -32,11 +32,12 @@ class DarkskyApi {
           case "clear-day":
             var weatherDiv = $("<i>").addClass("fas fa-sun");
             iconDiv.css('color','yellow');
-            weatherContainer.css('background-image','url(clear-day-background.jpeg)');
+            weatherContainer.css('background-image','url(clear-day.jpeg)');
             break;
           case "clear-night":
             var weatherDiv = $("<i>").addClass("fas fa-moon");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(clear-night.jpeg)');
             break;
           case "rain":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-rain");
@@ -46,34 +47,42 @@ class DarkskyApi {
           case "snow":
             var weatherDiv = $("<i>").addClass("fas fa-snowflake");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(snow-back.jpeg)');
             break;
           case "sleet":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-showers-heavy");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(snow-back.jpeg)');
             break;
           case "wind":
             var weatherDiv = $("<i>").addClass("fas fa-wind");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(wind-back.jpeg)');
             break;
           case "fog":
             var weatherDiv = $("<i>").addClass("fas fa-smog");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(smog-back.jpeg)');
             break;
           case "cloudy":
             var weatherDiv = $("<i>").addClass("fas fa-cloud");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(clear-day.jpeg)');
             break;
           case "partly-cloudy-day":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-sun");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(clear-day.jpeg)');
             break;
           case "partly-cloudy-night":
             var weatherDiv = $("<i>").addClass("fas fa-cloud-moon");
             iconDiv.css('color', 'white');
+            weatherContainer.css('background-image', 'url(clear-night.jpeg)');
             break;
           default:
             var weatherDiv = $("<i>").addClass("far fa-sun");
             iconDiv.css('color', 'yellow');
+            weatherContainer.css('background-image', 'url(clear-day.jpeg)');
         }
         // debugger;
         var shortForecast = result.daily.summary;
