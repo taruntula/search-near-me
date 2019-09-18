@@ -110,39 +110,35 @@ body,html {
     width: 100%;
 }
 
-.tableHead {
+.tableHead,
+.tableFormat {
     display: flex;
 	border-bottom: 1px solid black;
-	width: 99%;
+	width: 100%;
 }
 
-.place,
-.price,
-.distance {
+.tableHead > * {
+    border-right: 1px solid black;
+	padding-left: .5%;
+}
+
+tr:nth-of-type(1) {
     background-color: black;
 	color: white;
 	font-weight: bold;
 }
 
-.price {
+.price,
+.priceHead {
     width: 15%;
 }
 
-.place {
+.place,
+.placeHead {
     width: 60%;
 }
 
-.distance {
+.rating,
+.ratingHead {
     width: 25%;
-}
-
-.tableHeader0,
-.tableHeader1 {
-	display: flex;
-	border-bottom: 1px solid black;
-	width: 100%;
-}
-.tableHeader0 > * {
-	border-right: 1px solid black;
-	padding-left: .5%;
 }
