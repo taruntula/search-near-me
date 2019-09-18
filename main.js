@@ -2,6 +2,7 @@ $(document).ready(initApp);
 
 
 function initApp() {
+  debugger;
   $('.searchButton').click(function() {
     var searchValue = $('#search').val();
     var radiusValue = parseInt($('#radius').val());
@@ -10,7 +11,6 @@ function initApp() {
 
     //debugger
     var getAjaxCall = new Location(weather.getWeatherData, radiusValue, searchValue);
-    yelp.apiRequest();
     console.log(getAjaxCall.getLocation());
     window.location.href = './page2/page2.html';
   })
