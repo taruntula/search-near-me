@@ -69,5 +69,5 @@ class Yelp {
   }
 }
 
-var test = new Yelp(92782, 10, 'sushi');
-test.apiRequest();
+var yelp = new Yelp(92782, 10, 'sushi');
+yelp.apiRequest();
