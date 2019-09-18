@@ -42,7 +42,7 @@ getPokemonImage() {
       self.resultImage = result;
       self.pokemonImage = result.sprites["front_default"];
       //var appendImage = $('.pokemon').append.css(self.pokemonImage);
-      var pokeImage = $('<img>').attr('src', self.pokemonImage);
+      var pokeImage = $('<img>').addClass('pokeImage').attr('src', self.pokemonImage);
       var appendImage = $('.pokemon').append(pokeImage);
     },
     error: function(result) {
@@ -69,10 +69,17 @@ checkTemperature (temperature) {
   }
 }
 
-checkWeather (weather) {
+checkWeather (weather) {//add images
   switch(weather){
       case "cloudy":
         this.weatherPokemon = this.result.results[322].name;
+        //create image tag to pokemon container
+      var domElementPokemonContainer = $('.pokemon').append$('<div>')
+      var imageDomElement = $('<img>').addClass('cloudy').attr('src', '')
+      //can you add text to an image tag container? or creat a div and append that image and text in there
+        //append it to dom
+        //append witty text "I've got sunshine on a cloudy day"
+
         break;
       case "snow":
         this.weatherPokemon = this.result.results[451].name;
