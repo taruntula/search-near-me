@@ -55,48 +55,53 @@ getPokemonImage() {
 }
 
 checkTemperature (temperature) {
+  var pokeText = $('.pokeText');
   if (temperature >= 0 && temperature <= 75){
     this.pokemonBasedOnTemp = this.result.results[143].name;
     this.pokemonName = this.result.results[143];
+    pokeText.text(`It's a chilly day, make sure to grab a jacket!`);
   }
   if(temperature >=75 && temperature <=80){
     this.pokemonBasedOnTemp = this.result.results[3].name;
     this.pokemonName = this.result.results[3];
+    pokeText.text(`It's a warm day. Perfect for shorts and a t-shirt!`);
   } else if (temperature >= 81 && temperature <=86){
     this.pokemonBasedOnTemp = this.result.results[4].name;
     this.pokemonName = this.result.results[4];
+    pokeText.text(`It's a hot day. Make sure you stay hydrated!`);
   } else if(temperature >=87 && temperature <= 110){
     this.pokemonBasedOnTemp = this.result.results[5].name;
     this.pokemonName = this.result.results[5].name;
+    pokeText.text(`Just stay inside...`);
   }
 }
 
-checkWeather (weather) {//add images
-  switch(weather){
-      case "cloudy":
-        this.weatherPokemon = this.result.results[322].name;
-        //create image tag to pokemon container
-      var domElementPokemonContainer = $('.pokemon').append$('<div>')
-      var imageDomElement = $('<img>').addClass('cloudy').attr('src', '')
-      //can you add text to an image tag container? or creat a div and append that image and text in there
-        //append it to dom
-        //append witty text "I've got sunshine on a cloudy day"
+// checkWeather (weather) {//add images
+//   switch(weather){
+//       case "cloudy":
+//         this.weatherPokemon = this.result.results[322].name;
+//         //create image tag to pokemon container
+//       var domElementPokemonContainer = $('.pokemon').append$('<div>')
+//       var imageDomElement = $('<img>').addClass('cloudy').attr('src', '')
+//       //can you add text to an image tag container? or creat a div and append that image and text in there
+//         //append it to dom
+//         //append witty text "I've got sunshine on a cloudy day"
 
-        break;
-      case "snow":
-        this.weatherPokemon = this.result.results[451].name;
-        break;
-      case "rain":
-        this.weatherPokemon = this.result.results[481].name;
-        break;
-      case 'clear-day':
-        this.weatherPokemon = this.result.results[3].name;
-        break;
-      case 'thunderstorm':
-        this.weatherPokemon = this.result.results[144].name;
-    }
-  return this.weatherPokemon;
-  }
+//         break;
+//       case "snow":
+//         this.weatherPokemon = this.result.results[451].name;
+//         break;
+//       case "rain":
+//         this.weatherPokemon = this.result.results[481].name;
+//         break;
+//       case 'clear-day':
+//         this.weatherPokemon = this.result.results[3].name;
+//         break;
+//       case 'thunderstorm':
+//         this.weatherPokemon = this.result.results[144].name;
+//     }
+//   return this.weatherPokemon;
+//   }
 
   checkTemperatureAndGetImage() {
     this.checkTemperature(this.temperature);

@@ -3,6 +3,8 @@ class Location {
     this.longitude = this.longitude;
     this.latitude = this.latitude;
     this.zipCode = this.zipCode;
+    this.city = null;
+    this.state = null;
     this.locationCallback = gotLocationCallback;
     this.response = null;
     this.returnZip = this.returnZip.bind(this);
@@ -24,7 +26,12 @@ class Location {
           this.latitude = response.latitude;
           this.zipCode = response.zip;
           this.response = response;
+          this.city = response.city;
+          this.state = response['region_code'];
           console.log(response);
+          var currentLocationP = $('<p>');
+          currentLocationP.text(`${this.city}, ${this.state} ${this.zipCode}`);
+          $('.initial-location').append(currentLocationP);
           this.locationCallback(this.latitude, this.longitude);
           var yelp = new Yelp(this.returnZip, this.radius, this.searchTerm);
           yelp.apiRequest();
