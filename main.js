@@ -10,15 +10,14 @@ function initApp() {
 
     //debugger
     var getAjaxCall = new Location(weather.getWeatherData, radiusValue, searchValue);
-    yelp.apiRequest();
     console.log(getAjaxCall.getLocation());
-    window.location.href = './page2/page2.html';
+    // window.location.href = './page2/page2.html';
   })
 }
 
-function getInputValues() {
-  var searchValue = $('#search').val();
-  references.search = searchValue;
-  references.radius = parseInt($('#radius').val());
-  console.log(searchValue);
-}
+// function getInputValues() {
+//   var searchValue = $('#search').val();
+//   references.search = searchValue;
+//   references.radius = parseInt($('#radius').val());
+//   console.log(searchValue);
+// }

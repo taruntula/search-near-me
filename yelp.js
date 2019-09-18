@@ -5,9 +5,10 @@ class Yelp {
     this.response = null;
     this.term = searchTerm; // will be $('selector').val() to grab value from input field.
     this.zipCode = getZip();
+    this.apiRequest = this.apiRequest.bind(this);
   }
 
-  apiRequest(zipCode) {
+  apiRequest() {
     var self = this;
     var ajaxConfig = {
       dataType: 'json',
@@ -68,5 +69,9 @@ class Yelp {
 
   convertMilesToMeters(miles) {
     return miles * 1609;
+  }
+
+  callApi() {
+    this.apiRequest();
   }
 }

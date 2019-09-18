@@ -190,6 +190,15 @@ tr:nth-of-type(1) {
 	padding-left: .5%;
 }
 
-.pokeImage{
+.modal {
+    background-image: url('landingpagebackground.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
+.hidden {
+    visibility: visible;
 }
