@@ -2,11 +2,41 @@ body,html {
   height: 100%;
   width: 100%;
 }
-/* .zipcode {
-  height: 50%;
-  width: 50%;
-  background: pink;
-} */
+.background{
+  height: 100%;
+  width: 100%;
+  background-image: url('landingpagebackground.jpg');
+}
+
+.header {
+    /* display: inline-block; */
+    /* position: relative; */
+    /* left: 934px; */
+    /* height: 200px; */
+    text-align: center;
+    top: 300px;
+    font-size: 50px;
+    /* vertical-align: middle; */
+}
+.food-search {
+    position: relative;
+    height: 43%;
+    /* margin: 10px; */
+    top: 16%;
+    display: flex;
+    justify-content: space-around;
+    /* align-content: center; */
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+#search,#radius {
+  height: 10%;
+  width: 30%;
+}
+
+
 .big-weather-container {
     background: lightblue;
     display: inline-block;

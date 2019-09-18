@@ -27,6 +27,7 @@ class DarkskyApi {
         self.currentWeather = currentWeather;
         var currentLocation = result.timezone;
         self.currentLocation = currentLocation;
+        var weatherContainer = $(".weather-container");
         var iconDiv = $(".weather-icon");
         var weatherContainer = $('.weather-container');
         switch (weatherIcon) {
