@@ -27,6 +27,7 @@ class DarkskyApi {
         self.currentWeather = currentWeather;
         var currentLocation = result.timezone;
         self.currentLocation = currentLocation;
+        var weatherContainer = $(".weather-container");
         var iconDiv = $(".weather-icon");
         switch (weatherIcon) {
           case "clear-day":
@@ -102,5 +103,5 @@ class DarkskyApi {
 
 }
 
-// var weather = new DarkskyApi(33.635009,-117.740030);
-// console.log(weather.getWeatherData());
+var weather = new DarkskyApi(33.635009,-117.740030);
+console.log(weather.getWeatherData());
