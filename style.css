@@ -1,13 +1,10 @@
 body,html {
   height: 100%;
   width: 100%;
+  background-image: url('morningbg.jpg');
+  background-size: cover;
 }
 
-/* .landingbg {
-  background-image: url('landingpagebackground.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 .background{
   height: 100%;
   width: 100%;
@@ -181,8 +178,7 @@ body,html {
     left: 13px;
 }
 .yelp {
-
-    background: red;
+    
     height: 72%;
     width: 100%;
 }
@@ -190,7 +186,7 @@ body,html {
 .tableHead,
 .tableFormat {
     display: flex;
-	border-bottom: 1px solid black;
+	border-bottom: 1px dotted gray;
 	width: 100%;
 }
 
@@ -199,7 +195,7 @@ body,html {
 	padding-left: .5%;
 }
 
-tr:nth-of-type(1) {
+tr:nth-of-type(1) { /* table header */
     background-color: black;
 	color: white;
 	font-weight: bold;
@@ -208,11 +204,14 @@ tr:nth-of-type(1) {
 .price,
 .priceHead {
     width: 15%;
+    padding: 8px;
+    font-family: cursive;
 }
 
 .place,
 .placeHead {
     width: 60%;
+    
 }
 
 .rating,
@@ -220,8 +219,18 @@ tr:nth-of-type(1) {
     width: 25%;
 }
 
+.price,
+.place,
+.rating {
+    font-size: 20px;
+    color: white;
+    /* font-family: font-family: 'Ubuntu', sans-serif; */
+    /* font-family: 'Crimson Text', serif; */
+    font-family: 'Crimson Text', serif;
+}
 
-.tableHeader0,
+
+/* .tableHeader0,
 .tableHeader1 {
 	display: flex;
 	border-bottom: 1px solid black;
@@ -230,7 +239,7 @@ tr:nth-of-type(1) {
 .tableHeader0 > * {
 	border-right: 1px solid black;
 	padding-left: .5%;
-}
+} */
 
 .modal {
     display: inline-block;
