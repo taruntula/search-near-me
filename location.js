@@ -16,38 +16,32 @@ class Location {
   getLocation () {
     var ajaxConfigObject = {
       dataType: 'json',
-      url: 'http://api.ipstack.com/174.76.22.227?access_key=1a1994f66f98738ef0680c97975ec64c',
+      url: 'http://api.ipstack.com/check',
       method: 'Get',
       data: {
         access_key: '1a1994f66f98738ef0680c97975ec64c',
 
       },
       success: (response)=>{
-        //debugger
           this.longitude = response.longitude;
           this.latitude = response.latitude;
           this.zipCode = response.zip;
           this.response = response;
           this.city = response.city;
           this.state = response['region_code'];
-          console.log(response);
-          var currentLocationP = $('<p>');
+          var currentLocationP = $('<div>').addClass('location');
           currentLocationP.text(`${this.city}, ${this.state} ${this.zipCode}`);
-          $('.initial-location').append(currentLocationP);
+          $('.time-zone').append(currentLocationP);
           this.locationCallback(this.latitude, this.longitude);
           var yelp = new Yelp(this.returnZip, this.radius, this.searchTerm);
           yelp.apiRequest();
       },
       error: function(response){
         console.log('response ', response)
-      }.bind(this)
+      }.bind(this),
     }
-
-
     $.ajax(ajaxConfigObject);
-
   }
-
   returnZip() {
     return this.zipCode;
   }

@@ -12,13 +12,11 @@ class DarkskyApi {
   getWeatherData(latitude, longitude) {
     this.latitude = latitude;
     this.longitude = longitude;
-    //debugger;
     var ajaxConfigObject = {
       dataType: 'json',
       url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/57024ed6d2133cb3fa08bc57de5d4926/'+this.latitude+','+this.longitude,
       method: "GET",
       success:  (result)=> {
-        console.log("SUCCESS", result);
         var weatherIcon = result.currently.icon;
         this.weatherIcon = weatherIcon;
         var currentWeather = result.currently.temperature;
@@ -27,71 +25,58 @@ class DarkskyApi {
         var currentLocation = result.timezone;
         this.currentLocation = currentLocation;
         var currentWeatherDiv = $(".current-weather");
-        var weatherContainer = $(".weather-container");
         var iconDiv = $(".weather-icon");
+        var weatherDiv;
         switch (weatherIcon) {
           case "clear-day":
-            var weatherDiv = $("<i>").addClass("fas fa-sun");
+            weatherDiv = $("<i>").addClass("fas fa-sun");
             iconDiv.css('color','yellow');
-            // weatherContainer.css('background-image','url(clear-day.jpeg)');
             break;
           case "clear-night":
-            var weatherDiv = $("<i>").addClass("fas fa-moon");
+            weatherDiv = $("<i>").addClass("fas fa-moon");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(clear-night.jpeg)');
             break;
           case "rain":
-            var weatherDiv = $("<i>").addClass("fas fa-cloud-rain");
+            weatherDiv = $("<i>").addClass("fas fa-cloud-rain");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(rain-background.jpg)');
             break;
           case "snow":
-            var weatherDiv = $("<i>").addClass("fas fa-snowflake");
+            weatherDiv = $("<i>").addClass("fas fa-snowflake");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(snow-back.jpeg)');
             break;
           case "sleet":
-            var weatherDiv = $("<i>").addClass("fas fa-cloud-showers-heavy");
+            weatherDiv = $("<i>").addClass("fas fa-cloud-showers-heavy");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(snow-back.jpeg)');
             break;
           case "wind":
-            var weatherDiv = $("<i>").addClass("fas fa-wind");
+            weatherDiv = $("<i>").addClass("fas fa-wind");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(wind-back.jpeg)');
             break;
           case "fog":
-            var weatherDiv = $("<i>").addClass("fas fa-smog");
+            weatherDiv = $("<i>").addClass("fas fa-smog");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(smog-back.jpeg)');
             break;
           case "cloudy":
-            var weatherDiv = $("<i>").addClass("fas fa-cloud");
+            weatherDiv = $("<i>").addClass("fas fa-cloud");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(clear-day.jpeg)');
             break;
           case "partly-cloudy-day":
-            var weatherDiv = $("<i>").addClass("fas fa-cloud-sun");
+            weatherDiv = $("<i>").addClass("fas fa-cloud-sun");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(clear-day.jpeg)');
             break;
           case "partly-cloudy-night":
-            var weatherDiv = $("<i>").addClass("fas fa-cloud-moon");
+            weatherDiv = $("<i>").addClass("fas fa-cloud-moon");
             iconDiv.css('color', 'white');
-            // weatherContainer.css('background-image', 'url(clear-night.jpeg)');
             break;
           default:
-            var weatherDiv = $("<i>").addClass("far fa-sun");
+            weatherDiv = $("<i>").addClass("far fa-sun");
             iconDiv.css('color', 'yellow');
-            // weatherContainer.css('background-image', 'url(clear-day.jpeg)');
         }
-        // debugger;
         var shortForecast = result.daily.summary;
         var timeZoneDiv = $(".time-zone");
         var forecastText = $("<div>").text(shortForecast).css('position','relative');
         var timeZoneText = $("<div>").text(currentLocation).css('position','relative');
         var dailyForecast = $(".icon-description");
-        timeZoneDiv.append(timeZoneText);
         currentWeatherDiv.text(displayWeather+"ºF   ");
         dailyForecast.append(forecastText);
         iconDiv.append(weatherDiv);
@@ -114,6 +99,3 @@ class DarkskyApi {
   }
 
 }
-
-// var weather = new DarkskyApi(userLocation.longitude,userLocation.latitude);
-// console.log(weather.getWeatherData());
