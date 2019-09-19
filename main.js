@@ -9,5 +9,5 @@ function initApp() {
     console.log(getAjaxCall.getLocation());
     $('.modal').removeClass('visible');
     $('.modal').addClass('hidden');
-  })
+  });
 }

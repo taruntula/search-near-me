@@ -1,9 +1,8 @@
 class Yelp {
   constructor (getZip, radiusInMiles, searchTerm) {
-    //this.zipCode = zipCode;
     this.radius = this.convertMilesToMeters(radiusInMiles);
     this.response = null;
-    this.term = searchTerm; // will be $('selector').val() to grab value from input field.
+    this.term = searchTerm;
     this.zipCode = getZip();
     this.apiRequest = this.apiRequest.bind(this);
   }
@@ -23,7 +22,6 @@ class Yelp {
         term: self.term,
       },
       success: function(response) {
-        console.log("Yelp:",response);
         this.response = response;
         var newTable = $('<tr>').addClass('tableHead tableFormat');
         $('.yelp').append(newTable);
@@ -32,12 +30,10 @@ class Yelp {
           var tableData = $('<td>').addClass('tableData' + i + ' place').text(businessName);
           var tableData2 = $('<td>').addClass('tableData' + i + ' rating').text(businessRating);
           var tableData3 = $('<td>').addClass('tableData' + i + ' price').text(businessPrice);
-          var yelpDiv = $('<div>').addClass('yelpBusiness' + i);
           var businessName = response.businesses[i].name;
           var businessRating = response.businesses[i].rating;
           var businessPrice = response.businesses[i].price;
           $('.yelp').append(tableRow);
-          //$('.yelpBusiness' + i).append(tableRow);
           tableRow.append(tableData3, tableData, tableData2);
           tableData.text(businessName);
           if (i < 3) {
@@ -58,7 +54,6 @@ class Yelp {
             }
           }
         }
-        // this.getLocationCallback(this.zipCode);
       }.bind(this),
       error: function (response) {
         console.log("Yelp error:", response);

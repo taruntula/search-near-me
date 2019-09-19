@@ -13,37 +13,29 @@ class Pokemon{
 
 
 getPokemonData(){
-  // var self = this;
   var ajaxConfigObject ={
     dataType: 'json',
     url: "https://pokeapi.co/api/v2/pokemon/?limit=800",
     method: "GET",
     success: (result) => {
-      console.log("success", result, '\nselect bulbasaur:', result.results[0].name);
       this.result = result;
       this.checkTemperatureAndGetImage();
     },
-    error:function(jqXHr,status,errorThrown){
-      console.log("error");
-      // console.log("jqXHR", jqXHr);
-      // console.log("status", status);
-      // console.log("errorThrown", errorThrown);
+    error:function(error){
+      console.log("error", error);
     }
   }
 $.ajax(ajaxConfigObject);
 }
 
 getPokemonImage() {
-  // var self = this;
   var ajaxConfig = {
     dataType: 'json',
     url: this.pokemonName.url,
     method: 'GET',
     success: function(result) {
-      console.log('pokemon Images:', result.sprites["front_default"]);
       this.resultImage = result;
       this.pokemonImage = result.sprites["front_default"];
-      //var appendImage = $('.pokemon').append.css(self.pokemonImage);
       var pokeImage = $('<img>').addClass('pokeImage').attr('src', this.pokemonImage);
       $('.pokemon').append(pokeImage);
     }.bind(this),
@@ -76,38 +68,8 @@ checkTemperature (temperature) {
   }
 }
 
-// checkWeather (weather) {//add images
-//   switch(weather){
-//       case "cloudy":
-//         this.weatherPokemon = this.result.results[322].name;
-//         //create image tag to pokemon container
-//       var domElementPokemonContainer = $('.pokemon').append$('<div>')
-//       var imageDomElement = $('<img>').addClass('cloudy').attr('src', '')
-//       //can you add text to an image tag container? or creat a div and append that image and text in there
-//         //append it to dom
-//         //append witty text "I've got sunshine on a cloudy day"
-
-//         break;
-//       case "snow":
-//         this.weatherPokemon = this.result.results[451].name;
-//         break;
-//       case "rain":
-//         this.weatherPokemon = this.result.results[481].name;
-//         break;
-//       case 'clear-day':
-//         this.weatherPokemon = this.result.results[3].name;
-//         break;
-//       case 'thunderstorm':
-//         this.weatherPokemon = this.result.results[144].name;
-//     }
-//   return this.weatherPokemon;
-//   }
-
   checkTemperatureAndGetImage() {
     this.checkTemperature(this.temperature);
     this.getPokemonImage();
   }
 }
-
-// var pokegay = new Pokemon();
-// console.log(pokegay.getPokemonImage());
