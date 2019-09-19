@@ -48,3 +48,5 @@ Hackathon project involving the combination of different data sources into an ap
     - Tarun Padath
     - Brena Patel
     - Kevin Ihm
+    - FIGMA: https://www.figma.com/file/KJDgV2xDsorAVqKbOwPZkj/Untitled?node-id=0%3A1
+    - MEISTERTASK: https://www.meistertask.com/app/project/wnV5xMao/hackathon-2
