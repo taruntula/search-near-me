@@ -4,6 +4,7 @@ Hackathon project involving the combination of different data sources into an ap
 
 ### Requirements
 - Combined at least 4 **external** resources via AJAX requests and present their information in an application
+- API's used are Darksky, Yelp, Pokemon, and IPStack Location
 - All API interactions encapsulated in an OOP object defined with a class.
   - uses a class
   - has methods to access the data
